@@ -1,0 +1,137 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Portfolio" } = Astro.props;
+const base = import.meta.env.BASE_URL;
+---
+
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
+  <body class="bg-neutral-950 text-neutral-100 min-h-screen flex flex-col">
+    <header
+      class="sticky top-0 z-50 bg-neutral-950/90 backdrop-blur border-b border-neutral-800"
+    >
+      <nav
+        class="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between"
+      >
+        <a
+          href={base}
+          class="text-lg font-semibold tracking-tight hover:text-white transition-colors"
+        >
+          Portfolio
+        </a>
+        <!-- Mobile menu toggle -->
+        <button
+          id="menu-toggle"
+          class="md:hidden p-2 rounded text-neutral-400 hover:text-white transition-colors"
+          aria-label="Menü öffnen"
+        >
+          <svg
+            id="icon-open"
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+          <svg
+            id="icon-close"
+            class="w-6 h-6 hidden"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+        <!-- Desktop nav -->
+        <ul class="hidden md:flex gap-8 text-sm text-neutral-400">
+          <li>
+            <a href={base} class="hover:text-white transition-colors">Home</a>
+          </li>
+          <li>
+            <a href={`${base}blog`} class="hover:text-white transition-colors"
+              >Blog</a>
+          </li>
+          <li>
+            <a href={`${base}events`} class="hover:text-white transition-colors"
+              >Events</a>
+          </li>
+          <li>
+            <a
+              href={`${base}contact`}
+              class="hover:text-white transition-colors">Kontakt</a>
+          </li>
+        </ul>
+      </nav>
+      <!-- Mobile nav -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden border-t border-neutral-800"
+      >
+        <ul class="flex flex-col px-4 py-4 gap-4 text-sm text-neutral-400">
+          <li>
+            <a href={base} class="hover:text-white transition-colors">Home</a>
+          </li>
+          <li>
+            <a href={`${base}blog`} class="hover:text-white transition-colors"
+              >Blog</a>
+          </li>
+          <li>
+            <a href={`${base}events`} class="hover:text-white transition-colors"
+              >Events</a>
+          </li>
+          <li>
+            <a
+              href={`${base}contact`}
+              class="hover:text-white transition-colors">Kontakt</a>
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <main class="flex-1 max-w-5xl mx-auto w-full px-4 py-12">
+      <slot />
+    </main>
+
+    <footer
+      class="border-t border-neutral-800 text-center text-xs text-neutral-600 py-6"
+    >
+      © {new Date().getFullYear()} Portfolio
+    </footer>
+
+    <script>
+      const toggle = document.getElementById("menu-toggle")!;
+      const menu = document.getElementById("mobile-menu")!;
+      const iconOpen = document.getElementById("icon-open")!;
+      const iconClose = document.getElementById("icon-close")!;
+
+      toggle.addEventListener("click", () => {
+        menu.classList.toggle("hidden");
+        iconOpen.classList.toggle("hidden");
+        iconClose.classList.toggle("hidden");
+      });
+    </script>
+  </body>
+</html>

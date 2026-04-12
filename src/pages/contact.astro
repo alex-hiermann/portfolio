@@ -1,0 +1,61 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Kontakt | Portfolio">
+  <div class="max-w-xl">
+    <h1 class="text-4xl font-bold mb-2">Kontakt</h1>
+    <p class="text-neutral-400 mb-12">Schreib mir — ich melde mich.</p>
+
+    <form
+      action="https://formspree.io/f/DEINE_FORM_ID"
+      method="POST"
+      class="flex flex-col gap-6"
+    >
+      <div class="flex flex-col gap-1.5">
+        <label for="name" class="text-sm text-neutral-300">Name</label>
+        <input
+          id="name"
+          type="text"
+          name="name"
+          required
+          autocomplete="name"
+          class="bg-neutral-900 border border-neutral-700 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-neutral-500 transition-colors"
+          placeholder="Max Mustermann"
+        />
+      </div>
+
+      <div class="flex flex-col gap-1.5">
+        <label for="email" class="text-sm text-neutral-300">E-Mail</label>
+        <input
+          id="email"
+          type="email"
+          name="email"
+          required
+          autocomplete="email"
+          class="bg-neutral-900 border border-neutral-700 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-neutral-500 transition-colors"
+          placeholder="max@beispiel.de"
+        />
+      </div>
+
+      <div class="flex flex-col gap-1.5">
+        <label for="message" class="text-sm text-neutral-300">Nachricht</label>
+        <textarea
+          id="message"
+          name="message"
+          required
+          rows="6"
+          class="bg-neutral-900 border border-neutral-700 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-neutral-500 transition-colors resize-none"
+          placeholder="Deine Nachricht..."
+        ></textarea>
+      </div>
+
+      <button
+        type="submit"
+        class="px-6 py-3 bg-white text-black font-medium rounded-lg hover:bg-neutral-200 transition-colors self-start"
+      >
+        Absenden
+      </button>
+    </form>
+  </div>
+</Layout>

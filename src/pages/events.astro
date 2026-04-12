@@ -1,0 +1,63 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const events = (await getCollection('events'))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const now = new Date();
+const upcoming = events.filter((e) => e.data.date >= now);
+const past = events.filter((e) => e.data.date < now);
+---
+
+<Layout title="Events | Portfolio">
+  <h1 class="text-4xl font-bold mb-2">Events</h1>
+  <p class="text-neutral-400 mb-12">Auftritte, Ausstellungen, Veranstaltungen.</p>
+
+  {upcoming.length > 0 && (
+    <section class="mb-12">
+      <h2 class="text-sm uppercase tracking-widest text-neutral-500 mb-6">Kommend</h2>
+      <ul class="flex flex-col gap-4">
+        {upcoming.map((event) => (
+          <li class="border border-neutral-800 rounded-xl p-6 hover:border-neutral-600 transition-colors">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+              <div>
+                <p class="font-semibold text-lg">{event.data.title}</p>
+                <p class="text-sm text-neutral-400 mt-1">{event.data.description}</p>
+              </div>
+              <div class="text-right shrink-0">
+                <p class="text-sm font-medium">
+                  {event.data.date.toLocaleDateString('de-DE', { day: '2-digit', month: 'long', year: 'numeric' })}
+                </p>
+                <p class="text-xs text-neutral-500">{event.data.location}</p>
+              </div>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+
+  {past.length > 0 && (
+    <section>
+      <h2 class="text-sm uppercase tracking-widest text-neutral-500 mb-6">Vergangen</h2>
+      <ul class="flex flex-col divide-y divide-neutral-800">
+        {past.map((event) => (
+          <li class="py-5 flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6 opacity-60">
+            <span class="text-xs text-neutral-500 shrink-0 w-36">
+              {event.data.date.toLocaleDateString('de-DE', { day: '2-digit', month: 'long', year: 'numeric' })}
+            </span>
+            <div>
+              <p class="font-medium">{event.data.title}</p>
+              <p class="text-xs text-neutral-500">{event.data.location}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+
+  {events.length === 0 && (
+    <p class="text-neutral-500">Noch keine Events. Füge `.md`-Dateien in <code class="text-neutral-300">src/content/events/</code> hinzu.</p>
+  )}
+</Layout>
