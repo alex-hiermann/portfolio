@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="Impressum | Alexander Hiermann">
+<Layout title="Impressum | Benedikt Trcka">
     <div class="max-w-2xl">
         <h1 class="text-4xl font-bold mb-10 pb-4 border-b border-neutral-800">
             Impressum
@@ -10,24 +10,81 @@ import Layout from "../layouts/Layout.astro";
 
         <section class="mb-8">
             <h2 class="text-xl font-semibold mb-3">
-                Offenlegung gemäß § 25 Mediengesetz
+                Offenlegung gemäß § 25 Mediengesetz und § 5 E-Commerce-Gesetz
             </h2>
-            <p class="text-neutral-400 font-medium mb-1">
-                Betreiber der Website:
-            </p>
-            <p class="text-neutral-300">
-                Alexander Hiermann<br />
-                1100 Wien, Österreich
+            <p class="text-neutral-300 flex flex-col gap-1">
+                <span class="font-medium">Benedikt Trcka</span>
+                <span>Bruck an der Leitha, Niederösterreich, Österreich</span>
             </p>
         </section>
 
         <section class="mb-8">
             <h2 class="text-xl font-semibold mb-3">Kontakt</h2>
-            <p class="text-neutral-300">
-                E-Mail: <a
-                    href="mailto:alex.hiermann@gmx.at"
-                    class="text-neutral-400 hover:text-white transition-colors"
-                    >alex.hiermann@gmx.at</a
+            <p class="text-neutral-300 flex flex-col gap-1">
+                <span>
+                    E-Mail: <a
+                        href="mailto:training@btrcka.at"
+                        class="text-neutral-400 hover:text-white transition-colors"
+                        >training@btrcka.at</a
+                    >
+                </span>
+                <span>
+                    Telefon: <a
+                        href="tel:+436641309580"
+                        class="text-neutral-400 hover:text-white transition-colors"
+                        >+43 664 1309580</a
+                    >
+                </span>
+            </p>
+        </section>
+
+        <section class="mb-8">
+            <h2 class="text-xl font-semibold mb-3">Gewerbliche Tätigkeit</h2>
+            <p class="text-neutral-300 flex flex-col gap-1">
+                <span>
+                    <span class="text-neutral-400">Unternehmensgegenstand:</span
+                    > Personal Training &amp; Fitness Coaching
+                </span>
+                <span>
+                    <span class="text-neutral-400">Berufsbezeichnung:</span> Personal
+                    Trainer (Freies Gewerbe)
+                </span>
+                <span>
+                    <span class="text-neutral-400">Berufsrecht:</span> Gewerbeordnung
+                    1994 (GewO), abrufbar unter{" "}
+                    <a
+                        href="https://www.ris.bka.gv.at"
+                        target="_blank"
+                        rel="noopener"
+                        class="text-neutral-400 hover:text-white transition-colors underline underline-offset-2"
+                        >ris.bka.gv.at</a
+                    >
+                </span>
+                <span>
+                    <span class="text-neutral-400">GISA-Zahl:</span>{" "}
+                    <span class="text-neutral-500 italic"
+                        >[GISA-Zahl eintragen]</span
+                    >
+                </span>
+                <span>
+                    <span class="text-neutral-400">Aufsichtsbehörde:</span> Bezirkshauptmannschaft
+                    Bruck an der Leitha
+                </span>
+                <span>
+                    <span class="text-neutral-400">Mitglied der:</span> Wirtschaftskammer
+                    Niederösterreich (WKÖ)
+                </span>
+            </p>
+        </section>
+
+        <section class="mb-8">
+            <h2 class="text-xl font-semibold mb-3">Umsatzsteuer</h2>
+            <p class="text-neutral-400 leading-relaxed">
+                Gemäß § 6 Abs. 1 Z 27 UStG (Kleinunternehmerregelung) wird keine
+                Umsatzsteuer in Rechnung gestellt — es gilt die
+                Kleinunternehmerregelung. <span class="text-neutral-500 italic"
+                    >(Sofern eine UID-Nummer vorhanden ist, bitte hier
+                    eintragen: UID: ATU…)</span
                 >
             </p>
         </section>
@@ -37,19 +94,35 @@ import Layout from "../layouts/Layout.astro";
                 Grundlegende Richtung (Blattlinie)
             </h2>
             <p class="text-neutral-400 leading-relaxed">
-                Diese Website stellt ein persönliches Portfolio dar. Sie dient
-                der Präsentation meiner Projekte, Qualifikationen sowie meiner
-                Person als Software-Entwickler.
+                Diese Website dient dem Vertrieb und der Präsentation von
+                Personal Training- und Fitness-Coaching-Dienstleistungen von
+                Benedikt Trcka.
             </p>
         </section>
 
         <section class="mb-8">
             <h2 class="text-xl font-semibold mb-3">Haftungsausschluss</h2>
-            <p class="text-neutral-400 leading-relaxed">
+            <p class="text-neutral-400 leading-relaxed mb-3">
                 Trotz sorgfältiger inhaltlicher Kontrolle übernehme ich keine
                 Haftung für die Inhalte externer Links. Für den Inhalt der
                 verlinkten Seiten sind ausschließlich deren Betreiber
                 verantwortlich.
+            </p>
+            <p class="text-neutral-400 leading-relaxed">
+                Die auf dieser Website bereitgestellten Trainingsinhalte und
+                Empfehlungen ersetzen keine medizinische oder therapeutische
+                Beratung. Bei gesundheitlichen Beschwerden ist vor Beginn eines
+                Trainingsprogramms ein Arzt aufzusuchen.
+            </p>
+        </section>
+
+        <section class="mb-8">
+            <h2 class="text-xl font-semibold mb-3">Urheberrecht</h2>
+            <p class="text-neutral-400 leading-relaxed">
+                Alle Inhalte dieser Website (Texte, Bilder, Grafiken) sind
+                urheberrechtlich geschützt. Eine Vervielfältigung oder
+                Verwendung ohne ausdrückliche schriftliche Genehmigung ist nicht
+                gestattet.
             </p>
         </section>
     </div>

@@ -1,0 +1,105 @@
+---
+import Layout from "../../layouts/Layout.astro";
+const base = import.meta.env.BASE_URL;
+
+const leistungen = [
+    {
+        href: "hybrid-coaching",
+        title: "1:1 Hybrid Coaching",
+        description:
+            "Die Symbiose aus Personal Training und App-Begleitung. Technik live vor Ort, Fortschritt datenbasiert gesteuert.",
+        tags: ["Persönlich", "App-Begleitung", "Datenbasiert"],
+    },
+    {
+        href: "online-coaching",
+        title: "1:1 Online Coaching",
+        description:
+            "Maximale Flexibilität, kompromisslose Struktur. Coaching per App mit wöchentlichen Check-ins — orts- und zeitunabhängig.",
+        tags: ["Flexibel", "Video-Analyse", "Check-ins"],
+    },
+    {
+        href: "personal-training",
+        title: "Personal Training",
+        description:
+            "100 % Fokus auf dich. Echtzeit-Korrektur, Bewegungsanalyse und systematische Steigerung deiner Kraft.",
+        tags: ["Vor Ort", "Echtzeit", "1:1"],
+    },
+];
+---
+
+<Layout
+    title="Leistungen | Benedikt Trcka"
+    description="Personal Training, 1:1 Online Coaching und Hybrid Coaching von Benedikt Trcka \u2014 individuell, strukturiert, messbar."
+>
+    <section class="py-16 md:py-24 border-b border-neutral-800">
+        <p class="text-sm text-neutral-500 uppercase tracking-widest mb-4">
+            Angebote
+        </p>
+        <h1
+            class="text-4xl md:text-6xl font-bold tracking-tight mb-6 max-w-3xl"
+        >
+            Leistungen
+        </h1>
+        <p
+            class="text-lg md:text-xl text-neutral-400 max-w-2xl leading-relaxed"
+        >
+            Drei Wege, ein Ziel: ein strukturiertes Training, das zu deinem
+            Leben passt und messbare Ergebnisse liefert.
+        </p>
+    </section>
+
+    <section class="py-12">
+        <div class="flex flex-col divide-y divide-neutral-800">
+            {
+                leistungen.map((l) => (
+                    <a
+                        href={`${base}leistungen/${l.href}`}
+                        class="group flex flex-col md:flex-row md:items-center gap-4 md:gap-12 py-10 hover:bg-neutral-900/40 -mx-4 px-4 rounded-xl transition-colors"
+                    >
+                        <div class="flex-1 flex flex-col gap-3">
+                            <h2 class="text-xl md:text-2xl font-semibold group-hover:text-white transition-colors">
+                                {l.title}
+                            </h2>
+                            <p class="text-neutral-400 leading-relaxed max-w-xl">
+                                {l.description}
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                {l.tags.map((tag) => (
+                                    <span class="text-xs px-3 py-1 rounded-full bg-neutral-800 text-neutral-300">
+                                        {tag}
+                                    </span>
+                                ))}
+                            </div>
+                        </div>
+                        <span class="text-neutral-500 group-hover:text-white group-hover:translate-x-1 transition-all text-xl flex-shrink-0">
+                            →
+                        </span>
+                    </a>
+                ))
+            }
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-12 border-t border-neutral-800">
+        <div
+            class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6"
+        >
+            <div>
+                <h2 class="text-2xl font-semibold mb-1">
+                    Nicht sicher, was passt?
+                </h2>
+                <p class="text-neutral-400">
+                    Im kostenlosen Erstgespräch finden wir gemeinsam die
+                    richtige Option.
+                </p>
+            </div>
+            <a
+                href={`${base}contact`}
+                class="flex-shrink-0 px-6 py-3 bg-white text-black font-medium rounded-lg hover:bg-neutral-200 transition-colors text-center"
+            >
+                Erstgespräch vereinbaren
+            </a>
+        </div>
+    </section>
+</Layout>

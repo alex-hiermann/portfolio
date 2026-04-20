@@ -1,0 +1,159 @@
+---
+import Layout from "../layouts/Layout.astro";
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout
+    title="Über mich | Benedikt Trcka"
+    description="Als angehender Ingenieur für Erneuerbare Energien und Fitness Coach entwickle ich strukturierte Coaching-Konzepte für Menschen mit wenig Zeit."
+>
+    <!-- Hero: Bild + Intro nebeneinander -->
+    <section class="py-16 md:py-24">
+        <div class="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
+            <!-- Bild -->
+            <div class="w-full lg:w-2/5 flex-shrink-0">
+                <div class="relative rounded-2xl overflow-hidden aspect-[3/4]">
+                    <img
+                        src={`${base}images/benedikt.png`}
+                        alt="Benedikt Trcka"
+                        class="w-full h-full object-cover grayscale"
+                    />
+                    <!-- subtiler Gradient unten -->
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"
+                    >
+                    </div>
+                </div>
+            </div>
+
+            <!-- Text -->
+            <div class="flex flex-col gap-8 lg:pt-4">
+                <div>
+                    <p
+                        class="text-sm text-neutral-500 uppercase tracking-widest mb-4"
+                    >
+                        Über mich
+                    </p>
+                    <h1
+                        class="text-4xl md:text-5xl font-bold tracking-tight mb-6"
+                    >
+                        BENEDIKT TRCKA
+                    </h1>
+                    <p class="text-neutral-400 text-base leading-relaxed">
+                        Personal Trainer & Fitness Coach aus Bruck an der
+                        Leitha, Niederösterreich.
+                    </p>
+                </div>
+
+                <div
+                    class="flex flex-col gap-5 text-neutral-400 leading-relaxed"
+                >
+                    <p>
+                        Als angehender Ingenieur für Erneuerbare Energien
+                        verfolge ich einen klaren Ansatz:
+                        <span class="text-white font-medium">
+                            Gute Leistung entsteht nur auf einem stabilen
+                            Fundament.
+                        </span>
+                        Was in der Technik gilt, übertrage ich konsequent auf das
+                        Training — strukturiert, messbar, ohne Kompromisse.
+                    </p>
+                    <p>
+                        Nach vielen Jahren intensiver Sporterfahrung habe ich
+                        ein Coaching-Konzept für Menschen entwickelt, die wenig
+                        Zeit haben, aber trotzdem Ergebnisse wollen. Besonders
+                        Büroangestellte, Selbstständige und Handwerker
+                        profitieren davon.
+                        <span class="text-white font-medium">
+                            Statt stundenlanger, planloser Workouts setze ich
+                            auf effiziente Einheiten mit klarer Strategie.
+                        </span>
+                    </p>
+                    <p>
+                        Mein Versprechen: Ich begleite dich so lange, bis das
+                        Ziel erreicht ist — nicht mit Motivation-Sprüchen,
+                        sondern mit einem System, das funktioniert.
+                    </p>
+                </div>
+
+                <div class="flex flex-wrap gap-2 pt-2">
+                    <span
+                        class="text-xs px-3 py-1 rounded-full bg-neutral-800 text-neutral-300"
+                        >Ingenieur-Denkweise</span
+                    >
+                    <span
+                        class="text-xs px-3 py-1 rounded-full bg-neutral-800 text-neutral-300"
+                        >Strukturiert</span
+                    >
+                    <span
+                        class="text-xs px-3 py-1 rounded-full bg-neutral-800 text-neutral-300"
+                        >Faktenbasiert</span
+                    >
+                    <span
+                        class="text-xs px-3 py-1 rounded-full bg-neutral-800 text-neutral-300"
+                        >Effizient</span
+                    >
+                    <span
+                        class="text-xs px-3 py-1 rounded-full bg-neutral-800 text-neutral-300"
+                        >Ergebnisorientiert</span
+                    >
+                </div>
+
+                <a
+                    href={`${base}contact`}
+                    class="self-start px-6 py-3 bg-white text-black font-medium rounded-lg hover:bg-neutral-200 transition-colors"
+                >
+                    Erstgespräch vereinbaren
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Zahlen / Facts -->
+    <section class="py-12 border-t border-neutral-800">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div class="flex flex-col gap-1">
+                <span class="text-3xl font-bold">3+</span>
+                <span class="text-sm text-neutral-500"
+                    >Jahre Coaching-Erfahrung</span
+                >
+            </div>
+            <div class="flex flex-col gap-1">
+                <span class="text-3xl font-bold">1:1</span>
+                <span class="text-sm text-neutral-500"
+                    >Persönliche Betreuung</span
+                >
+            </div>
+            <div class="flex flex-col gap-1">
+                <span class="text-3xl font-bold">3</span>
+                <span class="text-sm text-neutral-500">Coaching-Formate</span>
+            </div>
+            <div class="flex flex-col gap-1">
+                <span class="text-3xl font-bold">0</span>
+                <span class="text-sm text-neutral-500">Planlose Workouts</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-12 border-t border-neutral-800">
+        <div
+            class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6"
+        >
+            <div>
+                <h2 class="text-2xl font-semibold mb-1">
+                    Starten wir gemeinsam.
+                </h2>
+                <p class="text-neutral-400">
+                    Das Erstgespräch ist kostenlos und unverbindlich.
+                </p>
+            </div>
+            <a
+                href={`${base}contact`}
+                class="flex-shrink-0 px-6 py-3 bg-white text-black font-medium rounded-lg hover:bg-neutral-200 transition-colors text-center"
+            >
+                Kontakt aufnehmen
+            </a>
+        </div>
+    </section>
+</Layout>

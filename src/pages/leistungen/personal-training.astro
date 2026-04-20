@@ -1,0 +1,234 @@
+---
+import Layout from "../../layouts/Layout.astro";
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout
+    title="Personal Training | Benedikt Trcka"
+    description="100 % Fokus auf dich und deine Ausführung. Perfekte Biomechanik, maximale Muskelrekrutierung und das sichere Durchbrechen deiner bisherigen Grenzen."
+>
+    <!-- Hero -->
+    <section class="py-16 md:py-24 border-b border-neutral-800">
+        <p class="text-sm text-neutral-500 uppercase tracking-widest mb-4">
+            Leistung
+        </p>
+        <h1
+            class="text-4xl md:text-6xl font-bold tracking-tight mb-6 max-w-3xl"
+        >
+            Personal Training
+        </h1>
+        <p
+            class="text-lg md:text-xl text-neutral-400 max-w-2xl leading-relaxed mb-8"
+        >
+            100 % Fokus auf dich und deine Ausführung. Im persönlichen 1:1
+            Training arbeiten wir direkt am Fundament: perfekte Biomechanik,
+            maximale Muskelrekrutierung und das sichere Durchbrechen deiner
+            bisherigen Grenzen.
+        </p>
+        <a
+            href={`${base}contact`}
+            class="inline-block px-6 py-3 bg-white text-black font-medium rounded-lg hover:bg-neutral-200 transition-colors"
+        >
+            Erstgespräch vereinbaren
+        </a>
+    </section>
+
+    <!-- Steps -->
+    <section class="py-16">
+        <div class="flex flex-col gap-0 divide-y divide-neutral-800">
+            <!-- Step 1 -->
+            <div class="flex flex-col md:flex-row gap-6 md:gap-12 py-12">
+                <div class="flex-shrink-0 flex items-start gap-4 md:w-56">
+                    <span
+                        class="text-3xl font-bold text-neutral-700 select-none leading-none"
+                        >01</span
+                    >
+                    <!-- Icon: User / Person -->
+                    <svg
+                        class="w-8 h-8 text-white mt-0.5 flex-shrink-0"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"
+                        ></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </div>
+                <div class="flex flex-col gap-3">
+                    <h2 class="text-xl md:text-2xl font-semibold">
+                        1:1 Echtzeit-Korrektur
+                    </h2>
+                    <p class="text-neutral-400 leading-relaxed max-w-2xl">
+                        Egal ob Muskelaufbau, Kraftsteigerung oder Calisthenics:
+                        Ich korrigiere deine Ausführung in Echtzeit. Wir lassen
+                        das Ego weg und sorgen dafür, dass die Belastung den
+                        Zielen entspricht.
+                        <span class="text-white font-medium"
+                            >Maximale Effizienz für deine Trainingszeit.</span
+                        >
+                    </p>
+                    <div class="flex flex-wrap gap-3 mt-1">
+                        <span
+                            class="text-xs px-3 py-1 rounded-full bg-neutral-800 text-neutral-300"
+                            >Muskelaufbau</span
+                        >
+                        <span
+                            class="text-xs px-3 py-1 rounded-full bg-neutral-800 text-neutral-300"
+                            >Kraftsteigerung</span
+                        >
+                        <span
+                            class="text-xs px-3 py-1 rounded-full bg-neutral-800 text-neutral-300"
+                            >Calisthenics</span
+                        >
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="flex flex-col md:flex-row gap-6 md:gap-12 py-12">
+                <div class="flex-shrink-0 flex items-start gap-4 md:w-56">
+                    <span
+                        class="text-3xl font-bold text-neutral-700 select-none leading-none"
+                        >02</span
+                    >
+                    <!-- Icon: Search / Scan / Analysis -->
+                    <svg
+                        class="w-8 h-8 text-white mt-0.5 flex-shrink-0"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"
+                        ></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                </div>
+                <div class="flex flex-col gap-3">
+                    <h2 class="text-xl md:text-2xl font-semibold">
+                        Bewegungsanalyse vor Ort
+                    </h2>
+                    <p class="text-neutral-400 leading-relaxed max-w-2xl">
+                        Bevor wir Gewichte bewegen, analysieren wir deine
+                        Bewegungsmuster live vor Ort. Wir identifizieren
+                        Dysbalancen, Einschränkungen oder Schmerzpunkte, um das
+                        Training
+                        <span class="text-white font-medium"
+                            >exakt und sicher auf deinen individuellen Körperbau
+                            abzustimmen.</span
+                        >
+                    </p>
+                    <div class="flex flex-wrap gap-3 mt-1">
+                        <span
+                            class="text-xs px-3 py-1 rounded-full bg-neutral-800 text-neutral-300"
+                            >Dysbalancen erkennen</span
+                        >
+                        <span
+                            class="text-xs px-3 py-1 rounded-full bg-neutral-800 text-neutral-300"
+                            >Individuelle Abstimmung</span
+                        >
+                        <span
+                            class="text-xs px-3 py-1 rounded-full bg-neutral-800 text-neutral-300"
+                            >Verletzungsprävention</span
+                        >
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="flex flex-col md:flex-row gap-6 md:gap-12 py-12">
+                <div class="flex-shrink-0 flex items-start gap-4 md:w-56">
+                    <span
+                        class="text-3xl font-bold text-neutral-700 select-none leading-none"
+                        >03</span
+                    >
+                    <!-- Icon: Trophy / Progress -->
+                    <svg
+                        class="w-8 h-8 text-white mt-0.5 flex-shrink-0"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <path d="M6 9H4.5a2.5 2.5 0 010-5H6"></path>
+                        <path d="M18 9h1.5a2.5 2.5 0 000-5H18"></path>
+                        <path d="M4 22h16"></path>
+                        <path
+                            d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"
+                        ></path>
+                        <path
+                            d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"
+                        ></path>
+                        <path d="M18 2H6v7a6 6 0 0012 0V2z"></path>
+                    </svg>
+                </div>
+                <div class="flex flex-col gap-3">
+                    <h2 class="text-xl md:text-2xl font-semibold">
+                        Grenzen überwinden — sicher
+                    </h2>
+                    <p class="text-neutral-400 leading-relaxed max-w-2xl">
+                        Wir pushen dich an deine Grenzen, ohne das
+                        Verletzungsrisiko zu erhöhen. Deine Kraftwerte werden
+                        dokumentiert und systematisch gesteigert.
+                        <span class="text-white font-medium"
+                            >Du baust ein unerschütterliches Trainingsfundament
+                            auf</span
+                        > und lernst, deinen Körper richtig zu spüren.
+                    </p>
+                    <div class="flex flex-wrap gap-3 mt-1">
+                        <span
+                            class="text-xs px-3 py-1 rounded-full bg-neutral-800 text-neutral-300"
+                            >Kraftwerte dokumentiert</span
+                        >
+                        <span
+                            class="text-xs px-3 py-1 rounded-full bg-neutral-800 text-neutral-300"
+                            >Systematische Steigerung</span
+                        >
+                        <span
+                            class="text-xs px-3 py-1 rounded-full bg-neutral-800 text-neutral-300"
+                            >Solides Fundament</span
+                        >
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-12 border-t border-neutral-800">
+        <div
+            class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6"
+        >
+            <div>
+                <h2 class="text-2xl font-semibold mb-1">Bereit anzufangen?</h2>
+                <p class="text-neutral-400">
+                    Schreib mir — das Erstgespräch ist kostenlos.
+                </p>
+            </div>
+            <a
+                href={`${base}contact`}
+                class="flex-shrink-0 px-6 py-3 bg-white text-black font-medium rounded-lg hover:bg-neutral-200 transition-colors text-center"
+            >
+                Jetzt Kontakt aufnehmen
+            </a>
+        </div>
+    </section>
+
+    <!-- Back -->
+    <div class="pb-12">
+        <a
+            href={base}
+            class="text-sm text-neutral-500 hover:text-white transition-colors"
+        >
+            ← Zurück zur Startseite
+        </a>
+    </div>
+</Layout>

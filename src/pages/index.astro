@@ -1,102 +1,184 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { getCollection } from "astro:content";
 
-const latestPosts = (await getCollection("blog"))
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-  .slice(0, 3);
 const base = import.meta.env.BASE_URL;
 ---
 
-<Layout title="Portfolio">
+<Layout
+  title="Benedikt Trcka | Personal Trainer & Fitness Coach"
+  description="1:1 Personal Training und Online Coaching aus Bruck an der Leitha. Datenbasiertes Training für messbare Ergebnisse — egal ob Muskelaufbau, Kraft oder Ausdauer."
+>
   <!-- Hero -->
-  <section class="py-16 md:py-24">
-    <p class="text-sm text-neutral-500 uppercase tracking-widest mb-4">
-      Willkommen
-    </p>
-    <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6">
-      Dein Name
-    </h1>
-    <p class="text-lg md:text-xl text-neutral-400 max-w-2xl mb-8">
-      Kurze Beschreibung — was du machst, wer du bist, was dich antreibt.
-    </p>
-    <div class="flex gap-4 flex-wrap">
-      <a
-        href={`${base}contact`}
-        class="px-6 py-3 bg-white text-black font-medium rounded-lg hover:bg-neutral-200 transition-colors"
+  <section class="py-16 md:py-24 relative overflow-hidden">
+    <!-- Background image (grayscale) -->
+    <div
+      class="absolute inset-0 grayscale"
+      style={`background-image: url('${base}images/benedikt.png'); background-repeat: no-repeat; background-size: 50%; background-position: right center;`}
+    >
+    </div>
+    <!-- Dark overlay for readability -->
+    <div class="absolute inset-0 bg-black/50"></div>
+    <!-- Content -->
+    <div class="relative z-10">
+      <p class="text-sm text-neutral-500 uppercase tracking-widest mb-4">
+        Willkommen
+      </p>
+      <h1
+        class="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-4"
       >
-        Kontakt aufnehmen
-      </a>
-      <a
-        href={`${base}blog`}
-        class="px-6 py-3 border border-neutral-700 rounded-lg hover:border-neutral-500 transition-colors"
-      >
-        Blog lesen
-      </a>
+        BENEDIKT TRCKA
+      </h1>
+      <p class="text-xl md:text-2xl font-semibold text-neutral-300 mb-4">
+        Du willst <span class="text-white">schwer</span> und <span
+          class="text-white">richtig</span
+        > trainieren?
+      </p>
+      <p class="text-lg md:text-xl text-neutral-400 max-w-2xl mb-8">
+        Verändere dein Training mit dem <span class="text-white font-medium"
+          >1:1 Hybrid System.</span
+        >
+      </p>
+      <div class="flex gap-4 flex-wrap">
+        <a
+          href={`${base}contact`}
+          class="px-6 py-3 bg-white text-black font-medium rounded-lg hover:bg-neutral-200 transition-colors"
+        >
+          Erstgespräch vereinbaren
+        </a>
+      </div>
     </div>
   </section>
 
   <!-- Gallery -->
   <section class="py-12 border-t border-neutral-800">
-    <h2 class="text-2xl font-semibold mb-8">Arbeiten</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+    <h2 class="text-2xl font-semibold mb-8">Leistungen</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Karte 1 -->
       <div
-        class="aspect-square bg-neutral-800 rounded-xl overflow-hidden flex items-center justify-center"
+        class="group relative rounded-xl overflow-hidden aspect-[3/4] bg-neutral-800 cursor-pointer"
       >
-        <span class="text-neutral-600 text-sm">Bild 1</span>
+        <!-- Bild -->
+        <div
+          class="absolute inset-0 bg-neutral-700 flex items-center justify-center transition-transform duration-500 group-hover:scale-105"
+        >
+          <span class="text-neutral-600 text-sm">Bild 1</span>
+        </div>
+        <!-- Gradient -->
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"
+        >
+        </div>
+        <!-- Overlay-Inhalt -->
+        <div class="absolute inset-x-0 bottom-0 p-5 flex flex-col gap-3">
+          <h3 class="text-base font-semibold leading-snug">
+            1:1 Hybrid Coaching
+          </h3>
+          <p
+            class="text-sm text-neutral-300 leading-relaxed
+            opacity-0 translate-y-3 transition-all duration-300
+            group-hover:opacity-100 group-hover:translate-y-0
+            [@media(hover:none)]:opacity-100 [@media(hover:none)]:translate-y-0"
+          >
+            Mein Hybrid Coaching ist eine Mischung aus Online Coaching und
+            Personal Training. Wir analysieren deinen Standpunkt persönlich vor
+            Ort, definieren Ziele und begleiten den ganzen Prozess mit
+            App-Begleitung und Personal Trainings.
+          </p>
+          <a
+            href={`${base}leistungen/hybrid-coaching`}
+            class="self-start text-sm font-medium px-4 py-2 rounded-lg border border-white/30 hover:bg-white hover:text-black transition-colors
+              opacity-0 translate-y-3 transition-all duration-300 delay-75
+              group-hover:opacity-100 group-hover:translate-y-0
+              [@media(hover:none)]:opacity-100 [@media(hover:none)]:translate-y-0"
+          >
+            Mehr erfahren →
+          </a>
+        </div>
       </div>
-      <div
-        class="aspect-square bg-neutral-800 rounded-xl overflow-hidden flex items-center justify-center"
-      >
-        <span class="text-neutral-600 text-sm">Bild 2</span>
-      </div>
-      <div
-        class="aspect-square bg-neutral-800 rounded-xl overflow-hidden flex items-center justify-center"
-      >
-        <span class="text-neutral-600 text-sm">Bild 3</span>
-      </div>
-    </div>
-  </section>
 
-  <!-- Latest blog posts -->
-  <section class="py-12 border-t border-neutral-800">
-    <div class="flex items-center justify-between mb-8">
-      <h2 class="text-2xl font-semibold">Aktuelles</h2>
-      <a
-        href={`${base}blog`}
-        class="text-sm text-neutral-400 hover:text-white transition-colors"
-        >Alle →</a
+      <!-- Karte 2 -->
+      <div
+        class="group relative rounded-xl overflow-hidden aspect-[3/4] bg-neutral-800 cursor-pointer"
       >
+        <!-- Bild -->
+        <img
+          src={`${base}images/app.png`}
+          alt="1:1 Online Coaching"
+          class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+        <!-- Gradient -->
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"
+        >
+        </div>
+        <!-- Overlay-Inhalt -->
+        <div class="absolute inset-x-0 bottom-0 p-5 flex flex-col gap-3">
+          <h3 class="text-base font-semibold leading-snug">
+            1:1 Online Coaching
+          </h3>
+          <p
+            class="text-sm text-neutral-300 leading-relaxed
+            opacity-0 translate-y-3 transition-all duration-300
+            group-hover:opacity-100 group-hover:translate-y-0
+            [@media(hover:none)]:opacity-100 [@media(hover:none)]:translate-y-0"
+          >
+            Betreuung per App: Trainingsdaten werden erfasst, von mir analysiert
+            und angepasst. Wöchentliche Check-Ins, Übungsvideos und individuelle
+            Anpassungen inklusive.
+          </p>
+          <a
+            href={`${base}leistungen/online-coaching`}
+            class="self-start text-sm font-medium px-4 py-2 rounded-lg border border-white/30 hover:bg-white hover:text-black transition-colors
+              opacity-0 translate-y-3 transition-all duration-300 delay-75
+              group-hover:opacity-100 group-hover:translate-y-0
+              [@media(hover:none)]:opacity-100 [@media(hover:none)]:translate-y-0"
+          >
+            Mehr erfahren →
+          </a>
+        </div>
+      </div>
+
+      <!-- Karte 3 -->
+      <div
+        class="group relative rounded-xl overflow-hidden aspect-[3/4] bg-neutral-800 cursor-pointer sm:col-span-2 lg:col-span-1"
+      >
+        <!-- Bild -->
+        <div
+          class="absolute inset-0 bg-neutral-700 flex items-center justify-center transition-transform duration-500 group-hover:scale-105"
+        >
+          <span class="text-neutral-600 text-sm">Bild 3</span>
+        </div>
+        <!-- Gradient -->
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"
+        >
+        </div>
+        <!-- Overlay-Inhalt -->
+        <div class="absolute inset-x-0 bottom-0 p-5 flex flex-col gap-3">
+          <h3 class="text-base font-semibold leading-snug">
+            Personal Training
+          </h3>
+          <p
+            class="text-sm text-neutral-300 leading-relaxed
+            opacity-0 translate-y-3 transition-all duration-300
+            group-hover:opacity-100 group-hover:translate-y-0
+            [@media(hover:none)]:opacity-100 [@media(hover:none)]:translate-y-0"
+          >
+            Für Einsteiger und Fortgeschrittene: Calisthenics, Bodybuilding,
+            Powerlifting oder Ausdauertraining — individuell auf dich
+            zugeschnitten.
+          </p>
+          <a
+            href={`${base}leistungen/personal-training`}
+            class="self-start text-sm font-medium px-4 py-2 rounded-lg border border-white/30 hover:bg-white hover:text-black transition-colors
+              opacity-0 translate-y-3 transition-all duration-300 delay-75
+              group-hover:opacity-100 group-hover:translate-y-0
+              [@media(hover:none)]:opacity-100 [@media(hover:none)]:translate-y-0"
+          >
+            Mehr erfahren →
+          </a>
+        </div>
+      </div>
     </div>
-    {
-      latestPosts.length === 0 ? (
-        <p class="text-neutral-500">Noch keine Einträge.</p>
-      ) : (
-        <ul class="flex flex-col gap-6">
-          {latestPosts.map((post) => (
-            <li>
-              <a
-                href={`${base}blog/${post.id}`}
-                class="group flex flex-col gap-1"
-              >
-                <span class="text-xs text-neutral-500">
-                  {post.data.date.toLocaleDateString("de-DE", {
-                    day: "2-digit",
-                    month: "long",
-                    year: "numeric",
-                  })}
-                </span>
-                <span class="text-lg font-medium group-hover:text-neutral-300 transition-colors">
-                  {post.data.title}
-                </span>
-                <span class="text-sm text-neutral-400">
-                  {post.data.description}
-                </span>
-              </a>
-            </li>
-          ))}
-        </ul>
-      )
-    }
   </section>
 </Layout>

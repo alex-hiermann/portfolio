@@ -1,25 +1,9 @@
 import { defineCollection, z } from 'astro:content';
-import { glob } from 'astro/loaders';
 
-const blog = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/blog' }),
-  schema: z.object({
-    title: z.string(),
-    date: z.coerce.date(),
-    description: z.string(),
-    image: z.string().optional(),
-  }),
-});
+// Blog und Events sind derzeit deaktiviert.
+// Collections hier auskommentiert lassen bis sie wieder gebraucht werden.
 
-const events = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/events' }),
-  schema: z.object({
-    title: z.string(),
-    date: z.coerce.date(),
-    location: z.string(),
-    description: z.string(),
-    image: z.string().optional(),
-  }),
-});
+// const blog = defineCollection({ ... });
+// const events = defineCollection({ ... });
 
-export const collections = { blog, events };
+export const collections = {};

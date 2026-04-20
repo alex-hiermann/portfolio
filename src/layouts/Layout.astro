@@ -6,7 +6,10 @@ interface Props {
   description?: string;
 }
 
-const { title, description = "Portfolio" } = Astro.props;
+const {
+  title,
+  description = "Personal Trainer & Fitness Coach aus Bruck an der Leitha — Benedikt Trcka.",
+} = Astro.props;
 const base = import.meta.env.BASE_URL;
 ---
 
@@ -14,7 +17,7 @@ const base = import.meta.env.BASE_URL;
 <html lang="de">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
+    <link rel="icon" type="image/png" href={`${base}images/logo.png`} />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <title>{title}</title>
@@ -28,9 +31,14 @@ const base = import.meta.env.BASE_URL;
       >
         <a
           href={base}
-          class="text-lg font-semibold tracking-tight hover:text-white transition-colors"
+          class="flex items-center gap-2.5 hover:opacity-80 transition-opacity"
         >
-          Portfolio
+          <img
+            src={`${base}images/logo.png`}
+            alt="Benedikt Trcka Logo"
+            class="h-8 w-auto"
+          />
+          <span class="text-lg font-semibold tracking-tight">btrcka.at</span>
         </a>
         <!-- Mobile menu toggle -->
         <button
@@ -71,13 +79,21 @@ const base = import.meta.env.BASE_URL;
             <a href={base} class="hover:text-white transition-colors">Home</a>
           </li>
           <li>
-            <a href={`${base}blog`} class="hover:text-white transition-colors"
-              >Blog</a
+            <a
+              href={`${base}leistungen`}
+              class="hover:text-white transition-colors">Leistungen</a
             >
           </li>
           <li>
-            <a href={`${base}events`} class="hover:text-white transition-colors"
-              >Events</a
+            <a
+              href={`${base}erfolgsgeschichten`}
+              class="hover:text-white transition-colors">Erfolgsgeschichten</a
+            >
+          </li>
+          <li>
+            <a
+              href={`${base}ueber-mich`}
+              class="hover:text-white transition-colors">Über mich</a
             >
           </li>
           <li>
@@ -98,13 +114,21 @@ const base = import.meta.env.BASE_URL;
             <a href={base} class="hover:text-white transition-colors">Home</a>
           </li>
           <li>
-            <a href={`${base}blog`} class="hover:text-white transition-colors"
-              >Blog</a
+            <a
+              href={`${base}leistungen`}
+              class="hover:text-white transition-colors">Leistungen</a
             >
           </li>
           <li>
-            <a href={`${base}events`} class="hover:text-white transition-colors"
-              >Events</a
+            <a
+              href={`${base}erfolgsgeschichten`}
+              class="hover:text-white transition-colors">Erfolgsgeschichten</a
+            >
+          </li>
+          <li>
+            <a
+              href={`${base}ueber-mich`}
+              class="hover:text-white transition-colors">Über mich</a
             >
           </li>
           <li>

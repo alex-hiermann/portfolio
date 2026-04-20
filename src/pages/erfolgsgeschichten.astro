@@ -1,0 +1,133 @@
+---
+import Layout from "../layouts/Layout.astro";
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout
+    title="Erfolgsgeschichten | Benedikt Trcka"
+    description="Echte Ergebnisse von echten Menschen. Schau dir an, was strukturiertes Training bewirken kann."
+>
+    <section class="py-16 md:py-24 border-b border-neutral-800">
+        <p class="text-sm text-neutral-500 uppercase tracking-widest mb-4">
+            Ergebnisse
+        </p>
+        <h1
+            class="text-4xl md:text-6xl font-bold tracking-tight mb-6 max-w-3xl"
+        >
+            Erfolgsgeschichten
+        </h1>
+        <p
+            class="text-lg md:text-xl text-neutral-400 max-w-2xl leading-relaxed"
+        >
+            Echte Ergebnisse von echten Menschen. Kein Zufall — nur
+            konsequentes, strukturiertes Training.
+        </p>
+    </section>
+
+    <section class="py-12">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Samuel -->
+            <div
+                class="bg-neutral-800 rounded-xl overflow-hidden flex flex-col"
+            >
+                <div
+                    class="aspect-video w-full bg-neutral-700 flex items-center justify-center"
+                >
+                    <span class="text-neutral-600 text-sm">Samuel (18)</span>
+                </div>
+                <div class="p-5 flex flex-col gap-2">
+                    <h3 class="text-base font-semibold leading-snug">
+                        Samuel (18)
+                    </h3>
+                    <p class="text-sm text-neutral-400 leading-relaxed">
+                        Samuel konnte sein Training mithilfe von Struktur
+                        wesentlich effizienter gestalten. Er trainiert heute
+                        weniger als je zuvor und baut weiterhin Muskeln auf.
+                        <br /><br />
+                        Er hat gelernt, dass es nicht darum geht, möglichst viel zu
+                        trainieren, sondern das Training so zu gestalten, dass es
+                        zum Leben passt und gleichzeitig Fortschritte ermöglicht.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Karin -->
+            <div
+                class="bg-neutral-800 rounded-xl overflow-hidden flex flex-col"
+            >
+                <div
+                    class="aspect-video w-full bg-neutral-700 flex items-center justify-center"
+                >
+                    <span class="text-neutral-600 text-sm">Karin (43)</span>
+                </div>
+                <div class="p-5 flex flex-col gap-2">
+                    <h3 class="text-base font-semibold leading-snug">
+                        Karin (43)
+                    </h3>
+                    <p class="text-sm text-neutral-400 leading-relaxed">
+                        Karin kam mit wenig Sporterfahrung zu mir, hatte aber
+                        das mutige Ziel, ein Spartan Race zu absolvieren.
+                        <br /><br />
+                        Wir haben ihr körperliches Fundament von Grund auf aufgebaut
+                        und die wöchentliche Belastung an ihren Alltag angepasst.
+                        <br /><br />
+                        Aus der Anfängerin ist eine leistungsfähige Athletin geworden,
+                        die heute topfit an der Startlinie für einen Hindernislauf
+                        stehen kann.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Platzhalter -->
+            <div
+                class="bg-neutral-800 rounded-xl overflow-hidden flex flex-col sm:col-span-2 lg:col-span-1"
+            >
+                <div
+                    class="aspect-video w-full bg-neutral-700 flex items-center justify-center"
+                >
+                    <span class="text-neutral-600 text-sm">Demnächst</span>
+                </div>
+                <div class="p-5 flex flex-col gap-2">
+                    <h3 class="text-base font-semibold leading-snug">
+                        Weitere Geschichte
+                    </h3>
+                    <p class="text-sm text-neutral-400 leading-relaxed">
+                        Die nächste Erfolgsgeschichte entsteht gerade.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-12 border-t border-neutral-800">
+        <div
+            class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6"
+        >
+            <div>
+                <h2 class="text-2xl font-semibold mb-1">
+                    Schreib deine eigene Geschichte.
+                </h2>
+                <p class="text-neutral-400">
+                    Das Erstgespräch ist kostenlos und unverbindlich.
+                </p>
+            </div>
+            <a
+                href={`${base}contact`}
+                class="flex-shrink-0 px-6 py-3 bg-white text-black font-medium rounded-lg hover:bg-neutral-200 transition-colors text-center"
+            >
+                Jetzt starten
+            </a>
+        </div>
+    </section>
+
+    <!-- Back -->
+    <div class="pb-12">
+        <a
+            href={base}
+            class="text-sm text-neutral-500 hover:text-white transition-colors"
+        >
+            ← Zurück zur Startseite
+        </a>
+    </div>
+</Layout>
