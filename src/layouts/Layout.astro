@@ -4,13 +4,27 @@ import "../styles/global.css";
 interface Props {
   title: string;
   description?: string;
+  image?: string;
+  noindex?: boolean;
 }
 
 const {
   title,
   description = "Personal Trainer & Fitness Coach aus Bruck an der Leitha — Benedikt Trcka.",
+  image = "/portfolio/images/logo.png",
+  noindex = false,
 } = Astro.props;
 const base = import.meta.env.BASE_URL;
+const path = Astro.url.pathname;
+const canonicalURL = new URL(
+  path,
+  Astro.site ?? "https://alex-hiermann.github.io",
+);
+const ogImage = new URL(image, Astro.site ?? "https://alex-hiermann.github.io");
+const isActive = (href: string) => {
+  if (href === base) return path === base || path === base.replace(/\/$/, "");
+  return path.startsWith(href);
+};
 ---
 
 <!doctype html>
@@ -18,11 +32,152 @@ const base = import.meta.env.BASE_URL;
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/png" href={`${base}images/logo.png`} />
+    <link rel="apple-touch-icon" href={`${base}images/logo.png`} />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    <meta name="author" content="Benedikt Trcka" />
+    <meta name="theme-color" content="#0a0a0a" />
+    <!-- Local SEO geo tags -->
+    <meta name="geo.region" content="AT-3" />
+    <meta
+      name="geo.placename"
+      content="Bruck an der Leitha, Niederösterreich"
+    />
+    <meta name="geo.position" content="48.0185;16.7736" />
+    <meta name="ICBM" content="48.0185, 16.7736" />
+    <link rel="canonical" href={canonicalURL} />
+    <link rel="alternate" hreflang="de-AT" href={canonicalURL} />
+    <link rel="alternate" hreflang="de" href={canonicalURL} />
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="de_AT" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content="Benedikt Trcka | Personal Trainer" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
     <title>{title}</title>
+    <!-- JSON-LD: LocalBusiness + Person -->
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "LocalBusiness",
+            "@id": canonicalURL.origin + canonicalURL.pathname + "#business",
+            name: "Benedikt Trcka — Personal Trainer & Fitness Coach",
+            description:
+              "1:1 Personal Training, Hybrid Coaching und Online Coaching aus Bruck an der Leitha, Niederösterreich.",
+            url: canonicalURL.origin + base,
+            telephone: "+436641309580",
+            email: "training@btrcka.at",
+            image: ogImage.toString(),
+            address: {
+              "@type": "PostalAddress",
+              streetAddress: "Getreidegasse 18",
+              addressLocality: "Sommerein",
+              postalCode: "2453",
+              addressCountry: "AT",
+            },
+            geo: {
+              "@type": "GeoCoordinates",
+              latitude: 48.0185,
+              longitude: 16.7736,
+            },
+            areaServed: [
+              { "@type": "City", name: "Bruck an der Leitha" },
+              { "@type": "City", name: "Sommerein" },
+              { "@type": "AdministrativeArea", name: "Niederösterreich" },
+            ],
+            priceRange: "€€",
+            currenciesAccepted: "EUR",
+            openingHoursSpecification: {
+              "@type": "OpeningHoursSpecification",
+              dayOfWeek: [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+              ],
+              opens: "07:00",
+              closes: "21:00",
+            },
+            hasOfferCatalog: {
+              "@type": "OfferCatalog",
+              name: "Coaching-Leistungen",
+              itemListElement: [
+                {
+                  "@type": "Offer",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "1:1 Hybrid Coaching",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "1:1 Online Coaching",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Personal Training",
+                  },
+                },
+              ],
+            },
+            sameAs: [],
+          },
+          {
+            "@type": "Person",
+            "@id": canonicalURL.origin + base + "ueber-mich/#person",
+            name: "Benedikt Trcka",
+            jobTitle: "Personal Trainer & Fitness Coach",
+            description:
+              "Benedikt Trcka ist Personal Trainer und Fitness Coach aus Bruck an der Leitha, Niederösterreich. Als angehender Ingenieur für Erneuerbare Energien entwickelt er strukturierte, datenbasierte Coaching-Konzepte.",
+            email: "training@btrcka.at",
+            telephone: "+436641309580",
+            url: canonicalURL.origin + base + "ueber-mich/",
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "Sommerein",
+              postalCode: "2453",
+              addressCountry: "AT",
+            },
+            knowsAbout: [
+              "Personal Training",
+              "Fitness Coaching",
+              "Hybrid Coaching",
+              "Online Coaching",
+              "Calisthenics",
+              "Bodybuilding",
+              "Powerlifting",
+              "Biomechanik",
+              "Krafttraining",
+            ],
+            worksFor: {
+              "@id": canonicalURL.origin + canonicalURL.pathname + "#business",
+            },
+          },
+        ],
+      })}
+    />
   </head>
   <body class="bg-neutral-950 text-neutral-100 min-h-screen flex flex-col">
+    <!-- Skip to content -->
+    <a href="#main-content" class="skip-link">Zum Inhalt springen</a>
     <header
       class="sticky top-0 z-50 bg-neutral-950/90 backdrop-blur border-b border-neutral-800"
     >
@@ -37,6 +192,9 @@ const base = import.meta.env.BASE_URL;
             src={`${base}images/logo.png`}
             alt="Benedikt Trcka Logo"
             class="h-8 w-auto"
+            width="32"
+            height="32"
+            decoding="async"
           />
           <span class="text-lg font-semibold tracking-tight">btrcka.at</span>
         </a>
@@ -76,30 +234,38 @@ const base = import.meta.env.BASE_URL;
         <!-- Desktop nav -->
         <ul class="hidden md:flex gap-8 text-sm text-neutral-400">
           <li>
-            <a href={base} class="hover:text-white transition-colors">Home</a>
+            <a
+              href={base}
+              class={`transition-colors hover:text-white ${isActive(base) ? "text-white font-medium" : ""}`}
+              >Home</a
+            >
           </li>
           <li>
             <a
               href={`${base}leistungen`}
-              class="hover:text-white transition-colors">Leistungen</a
+              class={`transition-colors hover:text-white ${isActive(`${base}leistungen`) ? "text-white font-medium" : ""}`}
+              >Leistungen</a
             >
           </li>
           <li>
             <a
               href={`${base}erfolgsgeschichten`}
-              class="hover:text-white transition-colors">Erfolgsgeschichten</a
+              class={`transition-colors hover:text-white ${isActive(`${base}erfolgsgeschichten`) ? "text-white font-medium" : ""}`}
+              >Erfolgsgeschichten</a
             >
           </li>
           <li>
             <a
               href={`${base}ueber-mich`}
-              class="hover:text-white transition-colors">Über mich</a
+              class={`transition-colors hover:text-white ${isActive(`${base}ueber-mich`) ? "text-white font-medium" : ""}`}
+              >Über mich</a
             >
           </li>
           <li>
             <a
               href={`${base}contact`}
-              class="hover:text-white transition-colors">Kontakt</a
+              class={`transition-colors hover:text-white ${isActive(`${base}contact`) ? "text-white font-medium" : ""}`}
+              >Kontakt</a
             >
           </li>
         </ul>
@@ -111,37 +277,45 @@ const base = import.meta.env.BASE_URL;
       >
         <ul class="flex flex-col px-4 py-4 gap-4 text-sm text-neutral-400">
           <li>
-            <a href={base} class="hover:text-white transition-colors">Home</a>
+            <a
+              href={base}
+              class={`transition-colors hover:text-white ${isActive(base) ? "text-white font-medium" : ""}`}
+              >Home</a
+            >
           </li>
           <li>
             <a
               href={`${base}leistungen`}
-              class="hover:text-white transition-colors">Leistungen</a
+              class={`transition-colors hover:text-white ${isActive(`${base}leistungen`) ? "text-white font-medium" : ""}`}
+              >Leistungen</a
             >
           </li>
           <li>
             <a
               href={`${base}erfolgsgeschichten`}
-              class="hover:text-white transition-colors">Erfolgsgeschichten</a
+              class={`transition-colors hover:text-white ${isActive(`${base}erfolgsgeschichten`) ? "text-white font-medium" : ""}`}
+              >Erfolgsgeschichten</a
             >
           </li>
           <li>
             <a
               href={`${base}ueber-mich`}
-              class="hover:text-white transition-colors">Über mich</a
+              class={`transition-colors hover:text-white ${isActive(`${base}ueber-mich`) ? "text-white font-medium" : ""}`}
+              >Über mich</a
             >
           </li>
           <li>
             <a
               href={`${base}contact`}
-              class="hover:text-white transition-colors">Kontakt</a
+              class={`transition-colors hover:text-white ${isActive(`${base}contact`) ? "text-white font-medium" : ""}`}
+              >Kontakt</a
             >
           </li>
         </ul>
       </div>
     </header>
 
-    <main class="flex-1 max-w-5xl mx-auto w-full px-4 py-12">
+    <main id="main-content" class="flex-1 max-w-5xl mx-auto w-full px-4 py-12">
       <slot />
     </main>
 
@@ -150,9 +324,8 @@ const base = import.meta.env.BASE_URL;
     >
       <span>© {new Date().getFullYear()} Alexander Hiermann</span>
       <div class="flex gap-4">
-        <a
-          href={`${base}agb`}
-          class="hover:text-neutral-400 transition-colors">AGB</a
+        <a href={`${base}agb`} class="hover:text-neutral-400 transition-colors"
+          >AGB</a
         >
         <a
           href={`${base}impressum`}
@@ -165,6 +338,24 @@ const base = import.meta.env.BASE_URL;
       </div>
     </footer>
 
+    <!-- Scroll to top -->
+    <button
+      id="scroll-top"
+      aria-label="Nach oben scrollen"
+      class="fixed bottom-6 right-6 z-50 p-3 rounded-full bg-neutral-800 border border-neutral-700 text-neutral-400 hover:text-white hover:bg-neutral-700 transition-all opacity-0 pointer-events-none"
+    >
+      <svg
+        class="w-5 h-5"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        stroke-width="2"
+      >
+        <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"
+        ></path>
+      </svg>
+    </button>
+
     <script>
       const toggle = document.getElementById("menu-toggle")!;
       const menu = document.getElementById("mobile-menu")!;
@@ -175,6 +366,40 @@ const base = import.meta.env.BASE_URL;
         menu.classList.toggle("hidden");
         iconOpen.classList.toggle("hidden");
         iconClose.classList.toggle("hidden");
+      });
+
+      // Magnetic buttons
+      const prefersReducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
+      if (!prefersReducedMotion) {
+        document.querySelectorAll<HTMLElement>(".magnetic").forEach((btn) => {
+          btn.addEventListener("mouseenter", () => {
+            btn.style.transition = "transform 0.15s ease";
+          });
+          btn.addEventListener("mousemove", (e) => {
+            const rect = btn.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            btn.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px)`;
+          });
+          btn.addEventListener("mouseleave", () => {
+            btn.style.transition =
+              "transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)";
+            btn.style.transform = "translate(0, 0)";
+          });
+        });
+      }
+
+      // Scroll to top
+      const scrollBtn = document.getElementById("scroll-top") as HTMLElement;
+      window.addEventListener("scroll", () => {
+        const visible = window.scrollY > 400;
+        scrollBtn.style.opacity = visible ? "1" : "0";
+        scrollBtn.style.pointerEvents = visible ? "auto" : "none";
+      });
+      scrollBtn.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
       });
     </script>
   </body>

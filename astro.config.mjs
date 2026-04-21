@@ -1,6 +1,6 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
-
+import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
@@ -9,6 +9,7 @@ export default defineConfig({
   // Derzeit noch auf Alex's GitHub Pages für Entwicklung.
   site: 'https://alex-hiermann.github.io',
   base: '/portfolio/',
+  integrations: [sitemap()],
   vite: {
     plugins: [tailwindcss()],
   },

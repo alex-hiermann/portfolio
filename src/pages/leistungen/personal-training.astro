@@ -5,7 +5,7 @@ const base = import.meta.env.BASE_URL;
 
 <Layout
     title="Personal Training | Benedikt Trcka"
-    description="100 % Fokus auf dich und deine Ausführung. Perfekte Biomechanik, maximale Muskelrekrutierung und das sichere Durchbrechen deiner bisherigen Grenzen."
+    description="Personal Training mit Benedikt Trcka in Bruck an der Leitha — 1:1 Betreuung, Biomechanik-Analyse, Calisthenics, Bodybuilding und Powerlifting."
 >
     <!-- Hero -->
     <section class="py-16 md:py-24 border-b border-neutral-800">
@@ -27,7 +27,7 @@ const base = import.meta.env.BASE_URL;
         </p>
         <a
             href={`${base}contact`}
-            class="inline-block px-6 py-3 bg-white text-black font-medium rounded-lg hover:bg-neutral-200 transition-colors"
+            class="magnetic inline-block px-6 py-3 bg-white text-black font-medium rounded-lg hover:bg-neutral-200 transition-colors"
         >
             Erstgespräch vereinbaren
         </a>
@@ -40,7 +40,7 @@ const base = import.meta.env.BASE_URL;
             <div class="flex flex-col md:flex-row gap-6 md:gap-12 py-12">
                 <div class="flex-shrink-0 flex items-start gap-4 md:w-56">
                     <span
-                        class="text-3xl font-bold text-neutral-700 select-none leading-none"
+                        class="text-3xl font-bold text-neutral-500 select-none leading-none"
                         >01</span
                     >
                     <!-- Icon: User / Person -->
@@ -92,7 +92,7 @@ const base = import.meta.env.BASE_URL;
             <div class="flex flex-col md:flex-row gap-6 md:gap-12 py-12">
                 <div class="flex-shrink-0 flex items-start gap-4 md:w-56">
                     <span
-                        class="text-3xl font-bold text-neutral-700 select-none leading-none"
+                        class="text-3xl font-bold text-neutral-500 select-none leading-none"
                         >02</span
                     >
                     <!-- Icon: Search / Scan / Analysis -->
@@ -145,7 +145,7 @@ const base = import.meta.env.BASE_URL;
             <div class="flex flex-col md:flex-row gap-6 md:gap-12 py-12">
                 <div class="flex-shrink-0 flex items-start gap-4 md:w-56">
                     <span
-                        class="text-3xl font-bold text-neutral-700 select-none leading-none"
+                        class="text-3xl font-bold text-neutral-500 select-none leading-none"
                         >03</span
                     >
                     <!-- Icon: Trophy / Progress -->
@@ -215,7 +215,7 @@ const base = import.meta.env.BASE_URL;
             </div>
             <a
                 href={`${base}contact`}
-                class="flex-shrink-0 px-6 py-3 bg-white text-black font-medium rounded-lg hover:bg-neutral-200 transition-colors text-center"
+                class="magnetic flex-shrink-0 px-6 py-3 bg-white text-black font-medium rounded-lg hover:bg-neutral-200 transition-colors text-center"
             >
                 Jetzt Kontakt aufnehmen
             </a>
@@ -232,3 +232,43 @@ const base = import.meta.env.BASE_URL;
         </a>
     </div>
 </Layout>
+
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Startseite",
+                        "item": "https://alex-hiermann.github.io/portfolio/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Leistungen",
+                        "item": "https://alex-hiermann.github.io/portfolio/leistungen/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": "Personal Training",
+                        "item": "https://alex-hiermann.github.io/portfolio/leistungen/personal-training/"
+                    }
+                ]
+            },
+            {
+                "@type": "Service",
+                "name": "Personal Training",
+                "description": "1:1 Personal Training mit Benedikt Trcka in Bruck an der Leitha. Biomechanik-Analyse, Calisthenics, Bodybuilding, Powerlifting und Ausdauertraining.",
+                "provider": { "@type": "Person", "name": "Benedikt Trcka" },
+                "areaServed": "Bruck an der Leitha, Niederösterreich",
+                "serviceType": "Personal Training",
+                "url": "https://alex-hiermann.github.io/portfolio/leistungen/personal-training/"
+            }
+        ]
+    }
+</script>

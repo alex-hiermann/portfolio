@@ -5,7 +5,7 @@ const base = import.meta.env.BASE_URL;
 
 <Layout
     title="Über mich | Benedikt Trcka"
-    description="Als angehender Ingenieur für Erneuerbare Energien und Fitness Coach entwickle ich strukturierte Coaching-Konzepte für Menschen mit wenig Zeit."
+    description="Benedikt Trcka — Personal Trainer & Fitness Coach aus Bruck an der Leitha, Niederösterreich. Strukturiertes, datenbasiertes Coaching für messbare Ergebnisse."
 >
     <!-- Hero: Bild + Intro nebeneinander -->
     <section class="py-16 md:py-24">
@@ -19,6 +19,10 @@ const base = import.meta.env.BASE_URL;
                         src={`${base}images/2.png`}
                         alt="Benedikt Trcka"
                         class="w-full h-full object-cover grayscale object-top"
+                        width="1080"
+                        height="1080"
+                        loading="lazy"
+                        decoding="async"
                     />
                     <!-- subtiler Gradient unten -->
                     <div
@@ -103,7 +107,7 @@ const base = import.meta.env.BASE_URL;
 
                 <a
                     href={`${base}contact`}
-                    class="self-start px-6 py-3 bg-white text-black font-medium rounded-lg hover:bg-neutral-200 transition-colors"
+                    class="magnetic self-start px-6 py-3 bg-white text-black font-medium rounded-lg hover:bg-neutral-200 transition-colors"
                 >
                     Erstgespräch vereinbaren
                 </a>
@@ -115,7 +119,11 @@ const base = import.meta.env.BASE_URL;
     <section class="py-12 border-t border-neutral-800">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div class="flex flex-col gap-1">
-                <span class="text-3xl font-bold">3+</span>
+                <span
+                    class="text-3xl font-bold"
+                    data-count-to="3"
+                    data-suffix="+">3+</span
+                >
                 <span class="text-sm text-neutral-500"
                     >Jahre Coaching-Erfahrung</span
                 >
@@ -127,11 +135,15 @@ const base = import.meta.env.BASE_URL;
                 >
             </div>
             <div class="flex flex-col gap-1">
-                <span class="text-3xl font-bold">3</span>
+                <span class="text-3xl font-bold" data-count-to="3">3</span>
                 <span class="text-sm text-neutral-500">Coaching-Formate</span>
             </div>
             <div class="flex flex-col gap-1">
-                <span class="text-3xl font-bold">0</span>
+                <span
+                    class="text-3xl font-bold"
+                    data-count-to="0"
+                    data-count-from="12">0</span
+                >
                 <span class="text-sm text-neutral-500">Planlose Workouts</span>
             </div>
         </div>
@@ -152,10 +164,47 @@ const base = import.meta.env.BASE_URL;
             </div>
             <a
                 href={`${base}contact`}
-                class="flex-shrink-0 px-6 py-3 bg-white text-black font-medium rounded-lg hover:bg-neutral-200 transition-colors text-center"
+                class="magnetic flex-shrink-0 px-6 py-3 bg-white text-black font-medium rounded-lg hover:bg-neutral-200 transition-colors text-center"
             >
                 Kontakt aufnehmen
             </a>
         </div>
     </section>
+    <script>
+        // Scroll-triggered stat counter
+        const prefersReducedMotion = window.matchMedia(
+            "(prefers-reduced-motion: reduce)",
+        ).matches;
+        const counters =
+            document.querySelectorAll<HTMLElement>("[data-count-to]");
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (!entry.isIntersecting) return;
+                    const el = entry.target as HTMLElement;
+                    const to = parseInt(el.dataset.countTo ?? "0");
+                    const from = parseInt(el.dataset.countFrom ?? "0");
+                    const suffix = el.dataset.suffix ?? "";
+                    if (prefersReducedMotion) {
+                        el.textContent = to + suffix;
+                        observer.unobserve(el);
+                        return;
+                    }
+                    const duration = 1400;
+                    const start = performance.now();
+                    const update = (now: number) => {
+                        const progress = Math.min((now - start) / duration, 1);
+                        const eased = 1 - Math.pow(1 - progress, 3);
+                        const current = Math.round(from + (to - from) * eased);
+                        el.textContent = current + suffix;
+                        if (progress < 1) requestAnimationFrame(update);
+                    };
+                    requestAnimationFrame(update);
+                    observer.unobserve(el);
+                });
+            },
+            { threshold: 0.6 },
+        );
+        counters.forEach((c) => observer.observe(c));
+    </script>
 </Layout>

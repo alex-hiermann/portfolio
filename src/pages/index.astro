@@ -9,7 +9,7 @@ const base = import.meta.env.BASE_URL;
   description="1:1 Personal Training und Online Coaching aus Bruck an der Leitha. Datenbasiertes Training für messbare Ergebnisse — egal ob Muskelaufbau, Kraft oder Ausdauer."
 >
   <!-- Hero -->
-  <section class="py-16 md:py-24 relative overflow-hidden">
+  <section class="py-16 md:py-24 relative">
     <!-- Content -->
     <div class="relative z-10">
       <p class="text-sm text-neutral-500 uppercase tracking-widest mb-4">
@@ -33,7 +33,7 @@ const base = import.meta.env.BASE_URL;
       <div class="flex gap-4 flex-wrap">
         <a
           href={`${base}contact`}
-          class="px-6 py-3 bg-white text-black font-medium rounded-lg hover:bg-neutral-200 transition-colors"
+          class="magnetic px-6 py-3 bg-white text-black font-medium rounded-lg hover:bg-neutral-200 transition-colors"
         >
           Erstgespräch vereinbaren
         </a>
@@ -50,41 +50,49 @@ const base = import.meta.env.BASE_URL;
         class="group relative rounded-xl overflow-hidden aspect-[3/4] bg-neutral-800 cursor-pointer"
       >
         <!-- Bild -->
-        <div
-          class="absolute inset-0 bg-neutral-700 flex items-center justify-center transition-transform duration-500 group-hover:scale-105"
-        >
-          <span class="text-neutral-600 text-sm">Bild 1</span>
-        </div>
+        <img
+          src={`${base}images/2.png`}
+          alt="1:1 Hybrid Coaching"
+          class="absolute inset-0 w-full h-full object-cover grayscale transition-transform duration-500 group-hover:scale-105"
+          width="1080"
+          height="1080"
+          loading="lazy"
+          decoding="async"
+        />
         <!-- Gradient -->
         <div
           class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"
         >
         </div>
         <!-- Overlay-Inhalt -->
-        <div class="absolute inset-x-0 bottom-0 p-5 flex flex-col gap-3">
+        <div class="absolute inset-x-0 bottom-0 p-5 flex flex-col">
+          <!-- Collapsible: grid trick so hidden content takes no space -->
+          <div
+            class="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] [@media(hover:none)]:grid-rows-[1fr] transition-[grid-template-rows] duration-300 overflow-hidden"
+          >
+            <div class="min-h-0 flex flex-col gap-3 pb-3 overflow-hidden">
+              <p
+                class="text-sm text-neutral-300 leading-relaxed
+                opacity-0 group-hover:opacity-100 [@media(hover:none)]:opacity-100
+                transition-opacity duration-300"
+              >
+                Mein Hybrid Coaching ist eine Mischung aus Personal Training und
+                App-Begleitung. Technik vor Ort, Fortschritt datenbasiert.
+              </p>
+              <a
+                href={`${base}leistungen/hybrid-coaching`}
+                aria-label="Mehr erfahren über 1:1 Hybrid Coaching"
+                class="self-start text-sm font-medium px-4 py-2 rounded-lg border border-white/30 hover:bg-white hover:text-black transition-colors
+                  opacity-0 group-hover:opacity-100 [@media(hover:none)]:opacity-100
+                  transition-opacity duration-300 delay-75"
+              >
+                Mehr erfahren →
+              </a>
+            </div>
+          </div>
           <h3 class="text-base font-semibold leading-snug">
             1:1 Hybrid Coaching
           </h3>
-          <p
-            class="text-sm text-neutral-300 leading-relaxed
-            opacity-0 translate-y-3 transition-all duration-300
-            group-hover:opacity-100 group-hover:translate-y-0
-            [@media(hover:none)]:opacity-100 [@media(hover:none)]:translate-y-0"
-          >
-            Mein Hybrid Coaching ist eine Mischung aus Online Coaching und
-            Personal Training. Wir analysieren deinen Standpunkt persönlich vor
-            Ort, definieren Ziele und begleiten den ganzen Prozess mit
-            App-Begleitung und Personal Trainings.
-          </p>
-          <a
-            href={`${base}leistungen/hybrid-coaching`}
-            class="self-start text-sm font-medium px-4 py-2 rounded-lg border border-white/30 hover:bg-white hover:text-black transition-colors
-              opacity-0 translate-y-3 transition-all duration-300 delay-75
-              group-hover:opacity-100 group-hover:translate-y-0
-              [@media(hover:none)]:opacity-100 [@media(hover:none)]:translate-y-0"
-          >
-            Mehr erfahren →
-          </a>
         </div>
       </div>
 
@@ -93,40 +101,48 @@ const base = import.meta.env.BASE_URL;
         class="group relative rounded-xl overflow-hidden aspect-[3/4] bg-neutral-800 cursor-pointer"
       >
         <!-- Bild -->
-        <div
-          class="absolute inset-0 bg-neutral-700 flex items-center justify-center transition-transform duration-500 group-hover:scale-105"
-        >
-          <span class="text-neutral-600 text-sm">Bild 2</span>
-        </div>
+        <img
+          src={`${base}images/3.png`}
+          alt="1:1 Online Coaching"
+          class="absolute inset-0 w-full h-full object-cover grayscale transition-transform duration-500 group-hover:scale-105"
+          width="1080"
+          height="1080"
+          loading="lazy"
+          decoding="async"
+        />
         <!-- Gradient -->
         <div
           class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"
         >
         </div>
         <!-- Overlay-Inhalt -->
-        <div class="absolute inset-x-0 bottom-0 p-5 flex flex-col gap-3">
+        <div class="absolute inset-x-0 bottom-0 p-5 flex flex-col">
+          <div
+            class="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] [@media(hover:none)]:grid-rows-[1fr] transition-[grid-template-rows] duration-300 overflow-hidden"
+          >
+            <div class="min-h-0 flex flex-col gap-3 pb-3 overflow-hidden">
+              <p
+                class="text-sm text-neutral-300 leading-relaxed
+                opacity-0 group-hover:opacity-100 [@media(hover:none)]:opacity-100
+                transition-opacity duration-300"
+              >
+                Individuelle Trainingspläne, wöchentliche Check-Ins und
+                Übungsvideos — komplett digital per App.
+              </p>
+              <a
+                href={`${base}leistungen/online-coaching`}
+                aria-label="Mehr erfahren über 1:1 Online Coaching"
+                class="self-start text-sm font-medium px-4 py-2 rounded-lg border border-white/30 hover:bg-white hover:text-black transition-colors
+                  opacity-0 group-hover:opacity-100 [@media(hover:none)]:opacity-100
+                  transition-opacity duration-300 delay-75"
+              >
+                Mehr erfahren →
+              </a>
+            </div>
+          </div>
           <h3 class="text-base font-semibold leading-snug">
             1:1 Online Coaching
           </h3>
-          <p
-            class="text-sm text-neutral-300 leading-relaxed
-            opacity-0 translate-y-3 transition-all duration-300
-            group-hover:opacity-100 group-hover:translate-y-0
-            [@media(hover:none)]:opacity-100 [@media(hover:none)]:translate-y-0"
-          >
-            Betreuung per App: Trainingsdaten werden erfasst, von mir analysiert
-            und angepasst. Wöchentliche Check-Ins, Übungsvideos und individuelle
-            Anpassungen inklusive.
-          </p>
-          <a
-            href={`${base}leistungen/online-coaching`}
-            class="self-start text-sm font-medium px-4 py-2 rounded-lg border border-white/30 hover:bg-white hover:text-black transition-colors
-              opacity-0 translate-y-3 transition-all duration-300 delay-75
-              group-hover:opacity-100 group-hover:translate-y-0
-              [@media(hover:none)]:opacity-100 [@media(hover:none)]:translate-y-0"
-          >
-            Mehr erfahren →
-          </a>
         </div>
       </div>
 
@@ -135,40 +151,48 @@ const base = import.meta.env.BASE_URL;
         class="group relative rounded-xl overflow-hidden aspect-[3/4] bg-neutral-800 cursor-pointer sm:col-span-2 lg:col-span-1"
       >
         <!-- Bild -->
-        <div
-          class="absolute inset-0 bg-neutral-700 flex items-center justify-center transition-transform duration-500 group-hover:scale-105"
-        >
-          <span class="text-neutral-600 text-sm">Bild 3</span>
-        </div>
+        <img
+          src={`${base}images/4.png`}
+          alt="Personal Training"
+          class="absolute inset-0 w-full h-full object-cover grayscale transition-transform duration-500 group-hover:scale-105"
+          width="1080"
+          height="1080"
+          loading="lazy"
+          decoding="async"
+        />
         <!-- Gradient -->
         <div
           class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"
         >
         </div>
         <!-- Overlay-Inhalt -->
-        <div class="absolute inset-x-0 bottom-0 p-5 flex flex-col gap-3">
+        <div class="absolute inset-x-0 bottom-0 p-5 flex flex-col">
+          <div
+            class="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] [@media(hover:none)]:grid-rows-[1fr] transition-[grid-template-rows] duration-300 overflow-hidden"
+          >
+            <div class="min-h-0 flex flex-col gap-3 pb-3 overflow-hidden">
+              <p
+                class="text-sm text-neutral-300 leading-relaxed
+                opacity-0 group-hover:opacity-100 [@media(hover:none)]:opacity-100
+                transition-opacity duration-300"
+              >
+                Calisthenics, Bodybuilding, Powerlifting oder Ausdauer — 1:1
+                Training individuell auf dich zugeschnitten.
+              </p>
+              <a
+                href={`${base}leistungen/personal-training`}
+                aria-label="Mehr erfahren über Personal Training"
+                class="self-start text-sm font-medium px-4 py-2 rounded-lg border border-white/30 hover:bg-white hover:text-black transition-colors
+                  opacity-0 group-hover:opacity-100 [@media(hover:none)]:opacity-100
+                  transition-opacity duration-300 delay-75"
+              >
+                Mehr erfahren →
+              </a>
+            </div>
+          </div>
           <h3 class="text-base font-semibold leading-snug">
             Personal Training
           </h3>
-          <p
-            class="text-sm text-neutral-300 leading-relaxed
-            opacity-0 translate-y-3 transition-all duration-300
-            group-hover:opacity-100 group-hover:translate-y-0
-            [@media(hover:none)]:opacity-100 [@media(hover:none)]:translate-y-0"
-          >
-            Für Einsteiger und Fortgeschrittene: Calisthenics, Bodybuilding,
-            Powerlifting oder Ausdauertraining — individuell auf dich
-            zugeschnitten.
-          </p>
-          <a
-            href={`${base}leistungen/personal-training`}
-            class="self-start text-sm font-medium px-4 py-2 rounded-lg border border-white/30 hover:bg-white hover:text-black transition-colors
-              opacity-0 translate-y-3 transition-all duration-300 delay-75
-              group-hover:opacity-100 group-hover:translate-y-0
-              [@media(hover:none)]:opacity-100 [@media(hover:none)]:translate-y-0"
-          >
-            Mehr erfahren →
-          </a>
         </div>
       </div>
     </div>

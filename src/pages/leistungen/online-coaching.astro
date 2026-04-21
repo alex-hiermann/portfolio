@@ -5,7 +5,7 @@ const base = import.meta.env.BASE_URL;
 
 <Layout
     title="1:1 Online Coaching | Benedikt Trcka"
-    description="Maximale Flexibilität gepaart mit kompromissloser Struktur. Datenbasiertes Coaching für messbare Ergebnisse, ohne örtliche Gebundenheit."
+    description="1:1 Online Coaching von Benedikt Trcka — individuelle Trainingspläne, wöchentliche Check-Ins und datenbasiertes Coaching. Flexibel, österreichweit."
 >
     <!-- Hero -->
     <section class="py-16 md:py-24 border-b border-neutral-800">
@@ -27,7 +27,7 @@ const base = import.meta.env.BASE_URL;
         </p>
         <a
             href={`${base}contact`}
-            class="inline-block px-6 py-3 bg-white text-black font-medium rounded-lg hover:bg-neutral-200 transition-colors"
+            class="magnetic inline-block px-6 py-3 bg-white text-black font-medium rounded-lg hover:bg-neutral-200 transition-colors"
         >
             Erstgespräch vereinbaren
         </a>
@@ -40,7 +40,7 @@ const base = import.meta.env.BASE_URL;
             <div class="flex flex-col md:flex-row gap-6 md:gap-12 py-12">
                 <div class="flex-shrink-0 flex items-start gap-4 md:w-56">
                     <span
-                        class="text-3xl font-bold text-neutral-700 select-none leading-none"
+                        class="text-3xl font-bold text-neutral-500 select-none leading-none"
                         >01</span
                     >
                     <!-- Icon: Video / Camera -->
@@ -89,7 +89,7 @@ const base = import.meta.env.BASE_URL;
             <div class="flex flex-col md:flex-row gap-6 md:gap-12 py-12">
                 <div class="flex-shrink-0 flex items-start gap-4 md:w-56">
                     <span
-                        class="text-3xl font-bold text-neutral-700 select-none leading-none"
+                        class="text-3xl font-bold text-neutral-500 select-none leading-none"
                         >02</span
                     >
                     <!-- Icon: Clipboard / Assessment -->
@@ -143,7 +143,7 @@ const base = import.meta.env.BASE_URL;
             <div class="flex flex-col md:flex-row gap-6 md:gap-12 py-12">
                 <div class="flex-shrink-0 flex items-start gap-4 md:w-56">
                     <span
-                        class="text-3xl font-bold text-neutral-700 select-none leading-none"
+                        class="text-3xl font-bold text-neutral-500 select-none leading-none"
                         >03</span
                     >
                     <!-- Icon: Phone / App -->
@@ -206,7 +206,7 @@ const base = import.meta.env.BASE_URL;
             </div>
             <a
                 href={`${base}contact`}
-                class="flex-shrink-0 px-6 py-3 bg-white text-black font-medium rounded-lg hover:bg-neutral-200 transition-colors text-center"
+                class="magnetic flex-shrink-0 px-6 py-3 bg-white text-black font-medium rounded-lg hover:bg-neutral-200 transition-colors text-center"
             >
                 Jetzt Kontakt aufnehmen
             </a>
@@ -223,3 +223,43 @@ const base = import.meta.env.BASE_URL;
         </a>
     </div>
 </Layout>
+
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Startseite",
+                        "item": "https://alex-hiermann.github.io/portfolio/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Leistungen",
+                        "item": "https://alex-hiermann.github.io/portfolio/leistungen/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": "1:1 Online Coaching",
+                        "item": "https://alex-hiermann.github.io/portfolio/leistungen/online-coaching/"
+                    }
+                ]
+            },
+            {
+                "@type": "Service",
+                "name": "1:1 Online Coaching",
+                "description": "Individuelle Trainingspläne, wöchentliche Check-Ins und Übungsvideos — flexibel und österreichweit. Datenbasiertes Online Coaching von Benedikt Trcka.",
+                "provider": { "@type": "Person", "name": "Benedikt Trcka" },
+                "areaServed": "Österreich",
+                "serviceType": "Online Fitness Coaching",
+                "url": "https://alex-hiermann.github.io/portfolio/leistungen/online-coaching/"
+            }
+        ]
+    }
+</script>

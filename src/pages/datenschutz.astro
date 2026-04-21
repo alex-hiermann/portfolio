@@ -2,8 +2,11 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="Datenschutz | Benedikt Trcka"
-    description="Datenschutzerklärung für btrcka.at gemäß DSGVO.">
+<Layout
+    title="Datenschutz | Benedikt Trcka"
+    description="Datenschutzerklärung für btrcka.at gemäß DSGVO."
+    noindex={true}
+>
     <div class="max-w-2xl">
         <h1 class="text-4xl font-bold mb-2 pb-4 border-b border-neutral-800">
             Datenschutzerklärung
@@ -76,7 +79,9 @@ import Layout from "../layouts/Layout.astro";
         </section>
 
         <section class="mb-8">
-            <h2 class="text-xl font-semibold mb-3">5. Formspree (Kontaktformular-Dienstleister)</h2>
+            <h2 class="text-xl font-semibold mb-3">
+                5. Formspree (Kontaktformular-Dienstleister)
+            </h2>
             <p class="text-neutral-400 leading-relaxed mb-3">
                 Das Kontaktformular dieser Website wird über den Dienst
                 <span class="text-neutral-300">Formspree</span> (Formspree, Inc.,
@@ -92,10 +97,12 @@ import Layout from "../layouts/Layout.astro";
                 Kontaktformulars).
             </p>
             <p class="text-neutral-400 leading-relaxed mb-3">
-                <span class="text-neutral-300">Datenübermittlung in die USA:</span>{" "}
+                <span class="text-neutral-300"
+                    >Datenübermittlung in die USA:</span
+                >{" "}
                 Formspree ist unter dem EU-US Data Privacy Framework zertifiziert,
-                wodurch ein angemessenes Datenschutzniveau gemäß Art. 45 DSGVO
-                gewährleistet wird.
+                wodurch ein angemessenes Datenschutzniveau gemäß Art. 45 DSGVO gewährleistet
+                wird.
             </p>
             <p class="text-neutral-400 leading-relaxed">
                 Weitere Informationen:{" "}
@@ -110,7 +117,9 @@ import Layout from "../layouts/Layout.astro";
         </section>
 
         <section class="mb-8">
-            <h2 class="text-xl font-semibold mb-3">6. Hosting (GitHub Pages)</h2>
+            <h2 class="text-xl font-semibold mb-3">
+                6. Hosting (GitHub Pages)
+            </h2>
             <p class="text-neutral-400 leading-relaxed mb-3">
                 Diese Website wird bei GitHub Pages gehostet. Anbieter ist die
                 GitHub, Inc., 88 Colin P. Kelly Jr. St, San Francisco, CA 94107,
@@ -124,10 +133,12 @@ import Layout from "../layouts/Layout.astro";
                 DSGVO (berechtigtes Interesse).
             </p>
             <p class="text-neutral-400 leading-relaxed mb-3">
-                <span class="text-neutral-300">Datenübermittlung in die USA:</span>{" "}
-                GitHub ist unter dem EU-US Data Privacy Framework zertifiziert,
-                wodurch ein angemessenes Datenschutzniveau gemäß Art. 45 DSGVO
-                gewährleistet wird.
+                <span class="text-neutral-300"
+                    >Datenübermittlung in die USA:</span
+                >{" "}
+                GitHub ist unter dem EU-US Data Privacy Framework zertifiziert, wodurch
+                ein angemessenes Datenschutzniveau gemäß Art. 45 DSGVO gewährleistet
+                wird.
             </p>
             <p class="text-neutral-400 leading-relaxed">
                 Weitere Informationen:{" "}
@@ -179,9 +190,9 @@ import Layout from "../layouts/Layout.astro";
                 <li>Recht auf Datenübertragbarkeit (Art. 20 DSGVO)</li>
                 <li>Widerspruchsrecht (Art. 21 DSGVO)</li>
                 <li>
-                    Recht auf Widerruf einer erteilten Einwilligung (Art. 7
-                    Abs. 3 DSGVO) — ohne Auswirkung auf die Rechtmäßigkeit der
-                    bis zum Widerruf erfolgten Verarbeitung
+                    Recht auf Widerruf einer erteilten Einwilligung (Art. 7 Abs.
+                    3 DSGVO) — ohne Auswirkung auf die Rechtmäßigkeit der bis
+                    zum Widerruf erfolgten Verarbeitung
                 </li>
             </ul>
             <p class="text-neutral-400 leading-relaxed">
