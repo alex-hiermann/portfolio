@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://btrcka.at/sitemap-index.xml
+Sitemap: https://fitmitbenedikt.at/sitemap-index.xml

@@ -5,7 +5,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://btrcka.at',
+  site: 'https://fitmitbenedikt.at',
   base: '/',
   integrations: [sitemap()],
   vite: {
