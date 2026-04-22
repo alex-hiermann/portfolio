@@ -11,16 +11,13 @@ interface Props {
 const {
   title,
   description = "Personal Trainer & Fitness Coach aus Bruck an der Leitha — Benedikt Trcka.",
-  image = "/portfolio/images/logo.png",
+  image = "/images/logo.png",
   noindex = false,
 } = Astro.props;
 const base = import.meta.env.BASE_URL;
 const path = Astro.url.pathname;
-const canonicalURL = new URL(
-  path,
-  Astro.site ?? "https://alex-hiermann.github.io",
-);
-const ogImage = new URL(image, Astro.site ?? "https://alex-hiermann.github.io");
+const canonicalURL = new URL(path, Astro.site ?? "https://btrcka.at");
+const ogImage = new URL(image, Astro.site ?? "https://btrcka.at");
 const isActive = (href: string) => {
   if (href === base) return path === base || path === base.replace(/\/$/, "");
   return path.startsWith(href);

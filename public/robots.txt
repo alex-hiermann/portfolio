@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://alex-hiermann.github.io/portfolio/sitemap-index.xml
+Sitemap: https://btrcka.at/sitemap-index.xml
