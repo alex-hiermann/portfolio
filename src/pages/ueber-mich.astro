@@ -13,10 +13,10 @@ const base = import.meta.env.BASE_URL;
             <!-- Bild -->
             <div class="w-full lg:w-2/5 flex-shrink-0">
                 <div
-                    class="relative rounded-2xl overflow-hidden aspect-[3/4] border-b border-neutral-600"
+                    class="relative rounded-2xl overflow-hidden aspect-[3/4] bg-[rgb(40,40,40)]"
                 >
                     <img
-                        src={`${base}images/2.png`}
+                        src={`${base}images/oberk-farbe.png`}
                         alt="Benedikt Trcka"
                         class="w-full h-full object-cover grayscale object-top"
                         width="1080"
@@ -26,7 +26,7 @@ const base = import.meta.env.BASE_URL;
                     />
                     <!-- subtiler Gradient unten -->
                     <div
-                        class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"
+                        class="absolute inset-0 bg-gradient-to-t from-black to-transparent"
                     >
                     </div>
                 </div>
@@ -121,22 +121,26 @@ const base = import.meta.env.BASE_URL;
             <div class="flex flex-col gap-1">
                 <span
                     class="text-3xl font-bold"
-                    data-count-to="3"
-                    data-suffix="+">3+</span
+                    data-count-to="10"
+                    data-suffix="+">10+</span
                 >
                 <span class="text-sm text-neutral-500"
-                    >Jahre Coaching-Erfahrung</span
+                    >Jahre Sport-Erfahrung</span
                 >
+            </div>
+            <div class="flex flex-col gap-1">
+                <span
+                    class="text-3xl font-bold"
+                    data-count-to="30"
+                    data-suffix="+">30+</span
+                >
+                <span class="text-sm text-neutral-500">Klienten</span>
             </div>
             <div class="flex flex-col gap-1">
                 <span class="text-3xl font-bold">1:1</span>
                 <span class="text-sm text-neutral-500"
                     >Persönliche Betreuung</span
                 >
-            </div>
-            <div class="flex flex-col gap-1">
-                <span class="text-3xl font-bold" data-count-to="3">3</span>
-                <span class="text-sm text-neutral-500">Coaching-Formate</span>
             </div>
             <div class="flex flex-col gap-1">
                 <span

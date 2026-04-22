@@ -41,7 +41,8 @@ const base = import.meta.env.BASE_URL;
     </div>
   </section>
 
-  <!-- Gallery -->
+  {/* Gallery temporarily hidden */}
+  {false && (
   <section class="py-12 border-t border-neutral-800">
     <h2 class="text-2xl font-semibold mb-8">Leistungen</h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -51,7 +52,7 @@ const base = import.meta.env.BASE_URL;
       >
         <!-- Bild -->
         <img
-          src={`${base}images/2.png`}
+          src={`${base}images/trainer-app.png`}
           alt="1:1 Hybrid Coaching"
           class="absolute inset-0 w-full h-full object-cover grayscale transition-transform duration-500 group-hover:scale-105"
           width="1080"
@@ -102,7 +103,7 @@ const base = import.meta.env.BASE_URL;
       >
         <!-- Bild -->
         <img
-          src={`${base}images/3.png`}
+          src={`${base}images/app-web-mobil.png`}
           alt="1:1 Online Coaching"
           class="absolute inset-0 w-full h-full object-cover grayscale transition-transform duration-500 group-hover:scale-105"
           width="1080"
@@ -152,7 +153,7 @@ const base = import.meta.env.BASE_URL;
       >
         <!-- Bild -->
         <img
-          src={`${base}images/4.png`}
+          src={`${base}images/backprint.png`}
           alt="Personal Training"
           class="absolute inset-0 w-full h-full object-cover grayscale transition-transform duration-500 group-hover:scale-105"
           width="1080"
@@ -197,4 +198,5 @@ const base = import.meta.env.BASE_URL;
       </div>
     </div>
   </section>
+  )}
 </Layout>
